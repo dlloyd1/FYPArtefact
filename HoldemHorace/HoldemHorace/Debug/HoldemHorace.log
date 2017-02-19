@@ -1,0 +1,11 @@
+﻿  PokerTable.cpp
+c:\users\dan\desktop\holdemhorace v1.2 enumeratorwrittennotused\holdemhorace\holdemhorace\pokertable.cpp(5): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  BasePlayer.cpp
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  main.cpp
+  Player.cpp
+  DeckHelper.cpp
+  AiPlayer.cpp
+  HoldemHorace.vcxproj -> C:\Users\Dan\Desktop\HoldemHorace v1.2 EnumeratorWrittenNotUsed\HoldemHorace\Debug\HoldemHorace.exe
+  HoldemHorace.vcxproj -> C:\Users\Dan\Desktop\HoldemHorace v1.2 EnumeratorWrittenNotUsed\HoldemHorace\Debug\HoldemHorace.pdb (Full PDB)
