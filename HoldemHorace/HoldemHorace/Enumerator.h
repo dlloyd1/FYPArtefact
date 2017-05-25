@@ -2,12 +2,8 @@
 #define _ENUMERATOR_H
 
 #include "Structures.h"
-#include <vector>
 #include <fstream>
-#include <iostream>
-#include <string>
-#include <stdlib.h>
-#include <algorithm>
+#include <stdlib.h> //size_t / atof()?
 
 
 class Enumerator
@@ -20,21 +16,20 @@ public:
 		return &instance;
 	}
 
-	float GetRankOfHand(HoleHand ourHand);
-	float GetHandStrength(vector<Card>* ourHand, vector<Card>* theirHand);
+	float GetWinPercentageOfHand(const vector<Card>* ourHand) const;
 
 private:
 	Enumerator();
 
 	Enumerator(const Enumerator&); 
-	Enumerator& operator=(const Enumerator &); 
+	Enumerator& operator=(const Enumerator&) {};
+
+	HoleHand ConvertHandToHoleHand(const vector<Card>* theHand) const;
+	RANK RankLookUp(const char rank) const;
+	vector<string> ReadInCSV() const;
+	void PopulateDistinctHands(const vector<string> inputFileAsStrings);
 
 	vector<HoleHand>* mDistinctHands;
-	HoleHand ConvertHandToHoleHand(vector<Card>* theHand);
-	RANK RankLookUp(char rank);
-	vector<string> ReadInCSV();
-	void PopulateDistinctHands(vector<string> inputFileAsStrings);
-	void RemoveFromHoleHandVector(vector<HoleHand> &vectorToModify, HoleHand handToRemove);
 };
 
 #endif // !_ENUMERATOR_H

@@ -12,10 +12,14 @@ public:
 	Player(SDL_Renderer* renderer, Texture2D* cardSpritesheet, Texture2D* cardOutlineTexture);
 	~Player();
 
-	void Render();
+	void Render() const;
 	void Update(float deltaTime, SDL_Event event);
+	//human player starts sb
+	void ResetPlayer() { mStack = 100; mHand = NULL; mPotContributionThisHand = 0; mIsOnButton = true; mHasFocus = true; }
+	void Call(const ACTION previousAction, const int currentBet, int& pot);
+	void Raise(ACTION& mLastActionTaken, int& mCurrentBet, int& mPot);
+	void Fold(const int potAmount) const;
 
-	void ResetPlayer() { mIsOnButton = true; mHasFocus = true; }
 private:
 };
 #endif // !_PLAYER_H

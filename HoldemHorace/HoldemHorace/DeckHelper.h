@@ -2,12 +2,6 @@
 #define _DECKHELPER_H
 
 #include "Structures.h"
-#include <vector>
-#include <iostream>
-#include <algorithm>
-#include <random>
-#include <string>
-#include <cassert>
 #include "Player.h"
 #include "AiPlayer.h"
 
@@ -25,9 +19,11 @@ public:
 	uint32 GetRandomDeckIndex(uint32 min, uint32 max);
 
 	void PrintDeck();
-	void PrintCard(Card card);
+	void PrintCard(const Card card) const;
+	string CardAsString(const Card card) const;
+	void PrintHand(vector<Card>* handToPrint);
 
-	vector<Card>* GetDeck() { return mDeck; };
+	vector<Card>* GetDeck() const { return mDeck; };
 
 private:
 	vector<Card>* mDeck;

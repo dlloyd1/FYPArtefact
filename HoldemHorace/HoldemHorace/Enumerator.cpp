@@ -13,21 +13,36 @@ Enumerator::~Enumerator()
 	delete mDistinctHands;
 }
 
-HoleHand Enumerator::ConvertHandToHoleHand(vector<Card>* theHand)
+HoleHand Enumerator::ConvertHandToHoleHand(const vector<Card>* theHand) const
 {
-	//go through each mDistinctHand
-	//find the HoleHand where card1 == theHand[0].rank && card2 == theHand[0].rank
+	//make a copy, to preserve the integrity of the actual hand card order
+	vector<Card> copyOfHand;
+	copyOfHand.push_back(theHand->at(0));
+	copyOfHand.push_back(theHand->at(1));
+
+
+	//Format the hand correctly, larger rank on the left, to determine which Distinct Hand we have
+	//only applicable to non pair hands
+	if (copyOfHand[0].rank != copyOfHand[1].rank)
+	{
+		if (copyOfHand[0].rank < copyOfHand[1].rank)
+		{
+			iter_swap(copyOfHand.begin(), copyOfHand.begin() + 1);
+		}
+	}
+
+	//go through each mDistinctHand and find a match
 	for(int i = 0; i < mDistinctHands->size(); ++i)
 	{
-		if (mDistinctHands->at(i).card1 == theHand->at(0).rank &&
-			mDistinctHands->at(i).card2 == theHand->at(1).rank)
+		if (mDistinctHands->at(i).card1 == copyOfHand[0].rank &&
+			mDistinctHands->at(i).card2 == copyOfHand[1].rank)
 		{
 			return mDistinctHands->at(i);
 		}
 	}
 }
 
-RANK Enumerator::RankLookUp(char rank)
+RANK Enumerator::RankLookUp(const char rank) const
 {
 	switch (rank)
 	{
@@ -75,7 +90,7 @@ RANK Enumerator::RankLookUp(char rank)
 }
 
 //each index of the container is a line from the csv
-vector<string> Enumerator::ReadInCSV()
+vector<string> Enumerator::ReadInCSV() const
 {
 	//format 1,AA
 	ifstream inputFile;
@@ -100,7 +115,7 @@ vector<string> Enumerator::ReadInCSV()
 }
 
 //populate table of distinct preflop hands by rank, given output from the csv read
-void Enumerator::PopulateDistinctHands(vector<string> inputFileAsStrings)
+void Enumerator::PopulateDistinctHands(const vector<string> inputFileAsStrings)
 {
 	for each (string s in inputFileAsStrings)
 	{
@@ -134,79 +149,25 @@ void Enumerator::PopulateDistinctHands(vector<string> inputFileAsStrings)
 	}
 }
 
-void Enumerator::RemoveFromHoleHandVector(vector<HoleHand> &vectorToModify, HoleHand handToRemove)
+//returns float percentage of hands our hand is stronger than
+float Enumerator::GetWinPercentageOfHand(const vector<Card>* ourHand) const
 {
+	HoleHand theHand = ConvertHandToHoleHand(ourHand);
 
-	int indexToDel = 0;
-	for (int i = 0; i < vectorToModify.size(); ++i)
-	{
-		if (vectorToModify.at(i).rank == handToRemove.rank &&
-			vectorToModify.at(i).card1 == handToRemove.card1 &&
-			vectorToModify.at(i).card2 == handToRemove.card2)
-		{
-			indexToDel = i;
-			break;
-		}
-	}
-	vectorToModify.erase(vectorToModify.begin() + indexToDel);
-}
-
-//returns float percentage of hands that are stronger than 'ourHand'
-float Enumerator::GetRankOfHand(HoleHand ourHand)
-{
 	//copy to new vector
-	vector<HoleHand> eachOtherHand = *mDistinctHands;
-	RemoveFromHoleHandVector(eachOtherHand, ourHand);
-	//168 remaining distinct hands that is not the hand we are ranking
-	//eachOtherHand.erase(remove(eachOtherHand.begin(), eachOtherHand.end(), ourHand), eachOtherHand.end());
+	vector<HoleHand> hands = *mDistinctHands;
 
 	float total = 0.0f;
-	for each (HoleHand hand in eachOtherHand)
+	for each (HoleHand hand in hands)
 	{
-		if (hand.rank > ourHand.rank)
+		if (hand.rank > theHand.rank)
 		{
 			total++;
 		}
-		else if (hand.rank == ourHand.rank)
+		else if (hand.rank == theHand.rank)
 		{
 			total += 0.5f;
 		}
 	}
-	//percentage of hands that defeat our hand, as decimal
-	return total / 168.0f;
-}
-
-//@TODO: update to add weighted enumerations instead of flat 1/0.5f 
-float Enumerator::GetHandStrength(vector<Card>* ourHand, vector<Card>* theirHand)
-{
-	HoleHand ourHoleHand = ConvertHandToHoleHand(ourHand);
-	HoleHand theirHoldHand = ConvertHandToHoleHand(theirHand);
-
-	vector<HoleHand> possibleOppDistinctHands = *mDistinctHands;
-	RemoveFromHoleHandVector(possibleOppDistinctHands, theirHoldHand);
-//possibleOppDistinctHands.erase(remove(possibleOppDistinctHands.begin(), possibleOppDistinctHands.end(), theirHand), possibleOppDistinctHands.end());
-
-	float ourRank = GetRankOfHand(ourHoleHand);
-	float ahead, tied, behind, handStrength;
-	ahead = tied = behind = handStrength = 0;
-
-	for each(HoleHand Hh in possibleOppDistinctHands)
-	{
-		float oppRank = GetRankOfHand(Hh);
-		if (ourRank > oppRank)
-		{
-			ahead++;
-		}
-		else if (ourRank == oppRank)
-		{
-			tied++;
-		}
-		else
-		{
-			behind++;
-		}
-	}
-
-	handStrength = (ahead + tied / 2) / (ahead + tied + behind);
-	return handStrength;
+	return (float)(total / mDistinctHands->size());
 }

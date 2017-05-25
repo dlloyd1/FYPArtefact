@@ -1,11 +1,26 @@
 ﻿  PokerTable.cpp
-c:\users\dan\desktop\holdemhorace v1.2 enumeratorwrittennotused\holdemhorace\holdemhorace\pokertable.cpp(5): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  BasePlayer.cpp
+c:\users\dan\desktop\holdemhorace v3.6 latest\holdemhorace\holdemhorace\pokertable.cpp(12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\dan\desktop\holdemhorace v3.6 latest\holdemhorace\holdemhorace\pokertable.cpp(878): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\dan\desktop\holdemhorace v3.6 latest\holdemhorace\holdemhorace\pokertable.cpp(879): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\dan\desktop\holdemhorace v3.6 latest\holdemhorace\holdemhorace\pokertable.cpp(880): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\dan\desktop\holdemhorace v3.6 latest\holdemhorace\holdemhorace\pokertable.cpp(881): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\dan\desktop\holdemhorace v3.6 latest\holdemhorace\holdemhorace\pokertable.cpp(890): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\dan\desktop\holdemhorace v3.6 latest\holdemhorace\holdemhorace\pokertable.cpp(891): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\dan\desktop\holdemhorace v3.6 latest\holdemhorace\holdemhorace\pokertable.cpp(894): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\dan\desktop\holdemhorace v3.6 latest\holdemhorace\holdemhorace\pokertable.cpp(898): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\dan\desktop\holdemhorace v3.6 latest\holdemhorace\holdemhorace\pokertable.cpp(902): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\dan\desktop\holdemhorace v3.6 latest\holdemhorace\holdemhorace\pokertable.cpp(907): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\dan\desktop\holdemhorace v3.6 latest\holdemhorace\holdemhorace\pokertable.cpp(916): warning C4244: 'argument': conversion from 'const double' to 'int', possible loss of data
+c:\users\dan\desktop\holdemhorace v3.6 latest\holdemhorace\holdemhorace\pokertable.cpp(917): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\dan\desktop\holdemhorace v3.6 latest\holdemhorace\holdemhorace\pokertable.cpp(918): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\dan\desktop\holdemhorace v3.6 latest\holdemhorace\holdemhorace\pokertable.cpp(919): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\dan\desktop\holdemhorace v3.6 latest\holdemhorace\holdemhorace\pokertable.cpp(922): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\dan\desktop\holdemhorace v3.6 latest\holdemhorace\holdemhorace\pokertable.cpp(923): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\dan\desktop\holdemhorace v3.6 latest\holdemhorace\holdemhorace\pokertable.cpp(924): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
   Generating Code...
+c:\users\dan\desktop\holdemhorace v3.6 latest\holdemhorace\holdemhorace\pokertable.cpp(578): warning C4715: 'PokerTable::DetermineHandOutcomeForFold': not all control paths return a value
   Skipping... (no relevant changes detected)
   main.cpp
-  Player.cpp
-  DeckHelper.cpp
-  AiPlayer.cpp
-  HoldemHorace.vcxproj -> C:\Users\Dan\Desktop\HoldemHorace v1.2 EnumeratorWrittenNotUsed\HoldemHorace\Debug\HoldemHorace.exe
-  HoldemHorace.vcxproj -> C:\Users\Dan\Desktop\HoldemHorace v1.2 EnumeratorWrittenNotUsed\HoldemHorace\Debug\HoldemHorace.pdb (Full PDB)
+  RegretEngine.cpp
+  HoldemHorace.vcxproj -> C:\Users\Dan\Desktop\HoldemHorace v3.6 latest\HoldemHorace\Debug\HoldemHorace.exe
+  HoldemHorace.vcxproj -> C:\Users\Dan\Desktop\HoldemHorace v3.6 latest\HoldemHorace\Debug\HoldemHorace.pdb (Full PDB)

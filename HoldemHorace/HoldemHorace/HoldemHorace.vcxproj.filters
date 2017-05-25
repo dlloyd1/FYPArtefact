@@ -9,9 +9,15 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
+    <Filter Include="Header Files\Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\FuzzyLogicBuckland">
+      <UniqueIdentifier>{28ef3e44-6367-45d4-a269-8345fecd50cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\FuzzyLogicBuckland">
+      <UniqueIdentifier>{6a1cc154-e0be-4cb8-ac03-0f25da7ba52a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -46,6 +52,48 @@
     <ClCompile Include="BasePlayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="OpponentModeller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilityHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RegretEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FuzzyLogicFacade.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseFuzzySet.cpp">
+      <Filter>Source Files\FuzzyLogicBuckland</Filter>
+    </ClCompile>
+    <ClCompile Include="FuzzyController.cpp">
+      <Filter>Source Files\FuzzyLogicBuckland</Filter>
+    </ClCompile>
+    <ClCompile Include="FuzzyRule.cpp">
+      <Filter>Source Files\FuzzyLogicBuckland</Filter>
+    </ClCompile>
+    <ClCompile Include="FuzzySetProxy.cpp">
+      <Filter>Source Files\FuzzyLogicBuckland</Filter>
+    </ClCompile>
+    <ClCompile Include="FuzzySingletonSet.cpp">
+      <Filter>Source Files\FuzzyLogicBuckland</Filter>
+    </ClCompile>
+    <ClCompile Include="FuzzyTerm.cpp">
+      <Filter>Source Files\FuzzyLogicBuckland</Filter>
+    </ClCompile>
+    <ClCompile Include="FuzzyTermAND.cpp">
+      <Filter>Source Files\FuzzyLogicBuckland</Filter>
+    </ClCompile>
+    <ClCompile Include="FuzzyVar.cpp">
+      <Filter>Source Files\FuzzyLogicBuckland</Filter>
+    </ClCompile>
+    <ClCompile Include="LeftShoulder.cpp">
+      <Filter>Source Files\FuzzyLogicBuckland</Filter>
+    </ClCompile>
+    <ClCompile Include="RightShoulder.cpp">
+      <Filter>Source Files\FuzzyLogicBuckland</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Texture2D.h">
@@ -74,6 +122,48 @@
     </ClInclude>
     <ClInclude Include="BasePlayer.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OpponentModeller.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UtilityHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RegretEngine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FuzzyLogicFacade.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FuzzyController.h">
+      <Filter>Header Files\FuzzyLogicBuckland</Filter>
+    </ClInclude>
+    <ClInclude Include="FuzzyRule.h">
+      <Filter>Header Files\FuzzyLogicBuckland</Filter>
+    </ClInclude>
+    <ClInclude Include="FuzzySetProxy.h">
+      <Filter>Header Files\FuzzyLogicBuckland</Filter>
+    </ClInclude>
+    <ClInclude Include="FuzzySingletonSet.h">
+      <Filter>Header Files\FuzzyLogicBuckland</Filter>
+    </ClInclude>
+    <ClInclude Include="FuzzyTerm.h">
+      <Filter>Header Files\FuzzyLogicBuckland</Filter>
+    </ClInclude>
+    <ClInclude Include="FuzzyTermAND.h">
+      <Filter>Header Files\FuzzyLogicBuckland</Filter>
+    </ClInclude>
+    <ClInclude Include="FuzzyVar.h">
+      <Filter>Header Files\FuzzyLogicBuckland</Filter>
+    </ClInclude>
+    <ClInclude Include="LeftShoulder.h">
+      <Filter>Header Files\FuzzyLogicBuckland</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseFuzzySet.h">
+      <Filter>Header Files\FuzzyLogicBuckland</Filter>
+    </ClInclude>
+    <ClInclude Include="RightShoulder.h">
+      <Filter>Header Files\FuzzyLogicBuckland</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

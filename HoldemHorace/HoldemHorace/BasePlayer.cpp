@@ -14,7 +14,7 @@ BasePlayer::~BasePlayer()
 {
 }
 
-void BasePlayer::ReceiveCardFromTable(Card card)
+void BasePlayer::ReceiveCardFromTable(const Card card)
 {
 	if (mHand == NULL)
 	{
@@ -29,7 +29,7 @@ void BasePlayer::ClearHand()
 	mHand = new vector<Card>();
 }
 
-int BasePlayer::PostBlind(int smallBlind)
+int BasePlayer::PostBlind(const int smallBlind)
 {
 	if (mIsOnButton)
 	{
@@ -44,7 +44,7 @@ int BasePlayer::PostBlind(int smallBlind)
 	}
 }
 
-int BasePlayer::GetMaxBetBeforeNegativeStack(int betAmount)
+int BasePlayer::GetMaxBetBeforeNegativeStack(const int betAmount) const
 {
 	int temp = betAmount;
 
@@ -53,75 +53,4 @@ int BasePlayer::GetMaxBetBeforeNegativeStack(int betAmount)
 		temp--;
 	}
 	return temp;
-}
-
-void BasePlayer::PrintCard(Card card)
-{
-	string result = "";
-	switch (card.rank)
-	{
-	case RANK_ACE:
-		result += "A";
-		break;
-	case RANK_TWO:
-		result += "2";
-		break;
-	case RANK_THREE:
-		result += "3";
-		break;
-	case RANK_FOUR:
-		result += "4";
-		break;
-	case RANK_FIVE:
-		result += "5";
-		break;
-	case RANK_SIX:
-		result += "6";
-		break;
-	case RANK_SEVEN:
-		result += "7";
-		break;
-	case RANK_EIGHT:
-		result += "8";
-		break;
-	case RANK_NINE:
-		result += "9";
-		break;
-	case RANK_TEN:
-		result += "T";
-		break;
-	case RANK_JACK:
-		result += "J";
-		break;
-	case RANK_QUEEN:
-		result += "Q";
-		break;
-	case RANK_KING:
-		result += "K";
-		break;
-	default:
-		result += "ERROR READING CARD RANK";
-		break;
-	}
-
-	switch (card.suit)
-	{
-	case SUIT_HEARTS:
-		result += "H";
-		break;
-	case SUIT_DIAMONDS:
-		result += "D";
-		break;
-	case SUIT_SPADES:
-		result += "S";
-		break;
-	case SUIT_CLUBS:
-		result += "C";
-		break;
-	default:
-		result += "ERROR READING CARD SUIT";
-		break;
-	}
-
-	cout << result << endl;
 }

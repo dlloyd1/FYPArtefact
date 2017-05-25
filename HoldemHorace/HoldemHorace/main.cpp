@@ -3,16 +3,10 @@
 #include <SDL_mixer.h>
 #include <SDL_ttf.h>
 
-#include <stdio.h>
-#include <iostream>
-#include <string>
-
 #include "Texture2D.h"
 #include "PokerTable.h"
 #include "Constants.h"
 #include "Structures.h"
-
-using namespace std;
 
 //Globals
 SDL_Window* gWindow = NULL;
@@ -23,7 +17,6 @@ Uint32 gOldTime;
 
 bool InitSDL()
 {
-	//SDL Setup
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
 		cout << "SDL failed to initialise correctly, ERROR: " << SDL_GetError() << endl;
@@ -36,7 +29,6 @@ bool InitSDL()
 		{
 			cout << "Warning: Linear texture filtering unavailable" << endl;
 		}
-		
 		//Create the window
 		gWindow = SDL_CreateWindow("HoldemHorace", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, kScreenWidth, kScreenHeight, SDL_WINDOW_SHOWN);
 
@@ -53,7 +45,6 @@ bool InitSDL()
 					cout << "SDL_Image failed to initialise correctly, ERROR: " << IMG_GetError() << endl;
 					return false;
 				}
-
 				//Text rendering setup
 				TTF_Init();
 				gFont = TTF_OpenFont("Fonts/arial.ttf", 20);
@@ -73,7 +64,6 @@ bool InitSDL()
 			cout << "SDL_Window failed to be correctly created, Error: " << SDL_GetError() << endl;
 		}
 	}
-
 	//successful SDL Init
 	return true;
 }
@@ -99,7 +89,6 @@ void Render()
 	SDL_RenderClear(gRenderer);
 
 	pPokerTable->Render();
-	
 	//Update the SDL_Renderer
 	SDL_RenderPresent(gRenderer);
 }
@@ -109,19 +98,19 @@ bool Update()
 	SDL_Event event;
 	SDL_PollEvent(&event);
 
+	switch (event.type)
+	{
+	case SDL_QUIT: //click 'X' to exit
+		return true;
+		break;
+	}
+
 	Uint32 currentTime = SDL_GetTicks();
 	double elapsedTime = currentTime - gOldTime;
 
 	gOldTime = currentTime;
 	double msElapsed = elapsedTime / 1000.0f;
 	
-	switch (event.type)
-	{	
-	case SDL_QUIT: //click 'X' to exit
-		return true;
-		break;
-	}
-
 	//fixed time step
 	while (msElapsed <= kMsPerUpdate)
 	{
@@ -148,8 +137,6 @@ int main(int argc, char* args[])
 		bool quit = false;
 		gOldTime = SDL_GetTicks();
 
-		cout << "Press Spacebar key to deal" << endl;
-		
 		while (!quit)
 		{
 			Render();
@@ -161,6 +148,7 @@ int main(int argc, char* args[])
 	{
 		delete pPokerTable;
 	}
+
 	CloseSDL();
 	return 0;
 }

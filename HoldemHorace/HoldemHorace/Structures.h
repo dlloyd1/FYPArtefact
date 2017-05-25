@@ -2,10 +2,33 @@
 #define _STRUCTURES_H
 
 #include <iostream>
+#include <cassert>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <map>
+
 #include "Constants.h"
 
 using uint32 = unsigned int;
 using namespace std;
+
+enum HANDOUTCOME
+{
+	OUTCOME_WIN,
+	OUTCOME_LOSE,
+	OUTCOME_TIE
+};
+
+enum PLAYSTYLE
+{
+	PLAYSTYLE_NONE,
+	PLAYSTYLE_TIGHTPASSIVE,
+	PLAYSTYLE_LOOSEPASSIVE,
+	PLAYSTYLE_TIGHTAGGRESSIVE,
+	PLAYSTYLE_LOOSEAGGRESSIVE
+};
 
 enum ACTION
 {

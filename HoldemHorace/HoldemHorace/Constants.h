@@ -1,12 +1,9 @@
 #ifndef _CONSTANTS_H
 #define _CONSTANTS_H
 
-#include <limits>
-#include "Structures.h"
-
 //Constants
-const int kScreenWidth = 640;
-const int kScreenHeight = 480;
+const int kScreenWidth = 1024;
+const int kScreenHeight = 768;
 const int kCardWidth = 30;
 const int kCardHeight = 50;
 const int kCardSeperationInPixels = 10;
@@ -22,13 +19,10 @@ const double  MinDouble = (std::numeric_limits<double>::min)();
 const float   MaxFloat = (std::numeric_limits<float>::max)();
 const float   MinFloat = (std::numeric_limits<float>::min)();
 
-//angles
-const double   Pi = 3.14159;
-const double   TwoPi = Pi * 2;
-const double   HalfPi = Pi / 2;
-const double   QuarterPi = Pi / 4;
+const double kPlaystyleModifierIncrease = 1.15;
+const double kPlaystyleModifierDecrease = 0.85;
+const double kPlaystyleModifier = 0.15;
 
-inline double DegsToRads(double degrees) { return TwoPi * (degrees / 360.0f); }
-inline double RadsToDegs(double radians) { return radians * (180.0f / Pi); }
+const double kVertTextSeperation = 25.0;
 
 #endif // !_CONSTANTS_H

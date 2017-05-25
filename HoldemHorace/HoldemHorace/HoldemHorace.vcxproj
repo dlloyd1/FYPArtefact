@@ -89,12 +89,12 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(PROJECTDIR)\SDL\mixer_include;$(PROJECTDIR)\SDL\include;$(PROJECTDIR)\SDL\image_include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Dan\Desktop\HoldemHorace v2.6 RegretsUpdatingCorrectly\HoldemHorace\HoldemHorace\AntTweakBar\include;$(PROJECTDIR)\SDL\mixer_include;$(PROJECTDIR)\SDL\include;$(PROJECTDIR)\SDL\image_include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(PROJECTDIR)\SDL\SDL2_ttf.dll;$(PROJECTDIR)\SDL;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\Dan\Desktop\HoldemHorace v2.6 RegretsUpdatingCorrectly\HoldemHorace\HoldemHorace\AntTweakBar\lib;$(PROJECTDIR)\SDL\SDL2_ttf.dll;$(PROJECTDIR)\SDL;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -121,12 +121,14 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(PROJECTDIR)\SDL\mixer_include;$(PROJECTDIR)\SDL\include;$(PROJECTDIR)\SDL\image_include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(PROJECTDIR)\SDL\SDL2_ttf.dll;$(PROJECTDIR)\SDL;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -149,13 +151,27 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AiPlayer.cpp" />
+    <ClCompile Include="BaseFuzzySet.cpp" />
     <ClCompile Include="BasePlayer.cpp" />
     <ClCompile Include="DeckHelper.cpp" />
     <ClCompile Include="Enumerator.cpp" />
+    <ClCompile Include="FuzzyController.cpp" />
+    <ClCompile Include="FuzzyLogicFacade.cpp" />
+    <ClCompile Include="FuzzyRule.cpp" />
+    <ClCompile Include="FuzzySetProxy.cpp" />
+    <ClCompile Include="FuzzySingletonSet.cpp" />
+    <ClCompile Include="FuzzyTerm.cpp" />
+    <ClCompile Include="FuzzyTermAND.cpp" />
+    <ClCompile Include="FuzzyVar.cpp" />
+    <ClCompile Include="LeftShoulder.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="OpponentModeller.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PokerTable.cpp" />
+    <ClCompile Include="RegretEngine.cpp" />
+    <ClCompile Include="RightShoulder.cpp" />
     <ClCompile Include="Texture2D.cpp" />
+    <ClCompile Include="UtilityHelper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="SDL\SDL2.lib" />
@@ -166,14 +182,28 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AiPlayer.h" />
+    <ClInclude Include="BaseFuzzySet.h" />
     <ClInclude Include="BasePlayer.h" />
     <ClInclude Include="Constants.h" />
     <ClInclude Include="DeckHelper.h" />
     <ClInclude Include="Enumerator.h" />
+    <ClInclude Include="FuzzyController.h" />
+    <ClInclude Include="FuzzyLogicFacade.h" />
+    <ClInclude Include="FuzzyRule.h" />
+    <ClInclude Include="FuzzySetProxy.h" />
+    <ClInclude Include="FuzzySingletonSet.h" />
+    <ClInclude Include="FuzzyTerm.h" />
+    <ClInclude Include="FuzzyTermAND.h" />
+    <ClInclude Include="FuzzyVar.h" />
+    <ClInclude Include="LeftShoulder.h" />
+    <ClInclude Include="OpponentModeller.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PokerTable.h" />
+    <ClInclude Include="RegretEngine.h" />
+    <ClInclude Include="RightShoulder.h" />
     <ClInclude Include="Structures.h" />
     <ClInclude Include="Texture2D.h" />
+    <ClInclude Include="UtilityHelper.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
